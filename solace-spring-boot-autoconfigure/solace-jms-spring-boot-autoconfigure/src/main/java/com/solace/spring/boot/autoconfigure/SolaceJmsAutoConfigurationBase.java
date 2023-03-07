@@ -48,12 +48,14 @@ abstract class SolaceJmsAutoConfigurationBase implements SpringSolJmsConnectionF
         return getSolConnectionFactory(findFirstSolaceServiceCredentialsImpl());
     }
 
+    // TODO qustion why this is here at all it is not a bean
     @Override
     public SolConnectionFactory getSolConnectionFactory(String id) {
         SolaceServiceCredentials solaceServiceCredentials = findSolaceServiceCredentialsById(id);
         return solaceServiceCredentials == null ? null : getSolConnectionFactory(solaceServiceCredentials);
     }
 
+    // TODO SAME FOR HERE no purpose?
     @Override
     public SolConnectionFactory getSolConnectionFactory(SolaceServiceCredentials solaceServiceCredentials) {
         try {
